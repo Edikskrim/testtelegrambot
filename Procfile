@@ -1,1 +1,1 @@
-worker: python const.py
+worker: python telegrambot.py
