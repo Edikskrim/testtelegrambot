@@ -21,6 +21,12 @@ markup_inline_payment.add(btn_in_cash,btn_in_card,btn_in_invoice)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	bot.reply_to(message, "Привет, я тест бот", reply_markup=markup_menu)
+def get_updates(self, offset=None, timeout=5):
+    method = 'getUpdates'
+    params = {'timeout': timeout, 'offset': offset}
+    resp = requests.get(self.api_url + method, params)
+    result_json = resp.json()['result']
+    return result_json
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
